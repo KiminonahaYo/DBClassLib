@@ -1,0 +1,1615 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBClassLib</name>
+    </assembly>
+    <members>
+        <member name="T:DBClassLib.All.Base.DbAccessBase">
+            <summary>
+                データベースアクセスクラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbAccessBase.AccessBase">
+            <summary>
+                データベースアクセスクラス用インターフェイス
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+            <remarks>継承専用</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.#ctor(DBClassLib.All.Base.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.#ctor(DBClassLib.All.Base.DbTransaction)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.PrepareDbKind(DBClassLib.All.DbKind)">
+            <summary>
+                データベースの種類ごとに初期化する。
+            </summary>
+            <param name="kind">データベース種類</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.AddParameter(System.String,System.Object,DBClassLib.Common.DBDataType)">
+            <summary>
+                パラメータを追加する。
+            </summary>
+            <param name="name">パラメータ名</param>
+            <param name="value">値</param>
+            <param name="type">データベース型</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.ClearParameter">
+            <summary>
+                Parameterをクリアする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.ExecuteDataSet(System.String)">
+            <summary>
+                Select文を実行する。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.ExecuteNonQuery(System.String)">
+            <summary>
+                Insert文・Update文・Delete文などを実行する。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.GetSchema(System.String)">
+            <summary>
+                スキーマ情報を取得します。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.GetDBDateTimeNow">
+            <summary>
+                データベース上の現在時刻を取得します。
+            </summary>
+            <returns>データベース上の現在時刻</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.ConvertDataRow``1(System.Object)">
+            <summary>
+                DataRowから取得したデータを変換する。
+            </summary>
+            <typeparam name="T">取得する型</typeparam>
+            <param name="obj">DataRowにあるデータ</param>
+            <returns>変換したデータ</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbAccessBase.ConvertDataRowToNullable``1(System.Object)">
+            <summary>
+                DataRowから取得したデータを変換する。
+            </summary>
+            <typeparam name="T">取得する型</typeparam>
+            <param name="obj">DataRowにあるデータ</param>
+            <returns>変換したデータ</returns>
+        </member>
+        <member name="T:DBClassLib.All.Base.DbBase">
+            <summary>
+                データベース基底クラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbBase.DbKind">
+            <summary>
+                データベースの種類
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbBase.Copy(System.Object)">
+            <summary>
+                このクラスのコピーを行う。
+            </summary>
+            <param name="to">コピー先</param>
+        </member>
+        <member name="T:DBClassLib.All.Base.DbConnection">
+            <summary>
+                コネクションクラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbConnection.Connection">
+            <summary>
+                コネクション用インターフェイス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbConnection.ConnectionString">
+            <summary>
+                接続文字列
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbConnection.IsOpen">
+            <summary>
+                接続が開かれているかどうか
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+            <remarks>同ライブラリ内での継承専用</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.#ctor(DBClassLib.All.DbKind)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="kind">DB種類</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.#ctor(DBClassLib.All.Base.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.PrepareDbKind(DBClassLib.All.DbKind)">
+            <summary>
+                データベースの種類ごとに初期化する。
+            </summary>
+            <param name="kind">データベース種類</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.Open">
+            <summary>
+                データベースをオープンする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.Close">
+            <summary>
+                データベースをクローズする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.Dispose">
+            <summary>
+                リソースを破棄する。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.CopyConnection(DBClassLib.All.Base.DbConnection)">
+            <summary>
+                コネクションをコピーする。
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbConnection.Copy(System.Object)">
+            <summary>
+                コネクションのコピーを行う。
+            </summary>
+            <param name="to">コピー先</param>
+        </member>
+        <member name="T:DBClassLib.All.Base.DbTableBase">
+            <summary>
+                データベーステーブル基底クラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbTableBase.TableBase">
+            <summary>
+                データベーステーブル基底クラス用インターフェイス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbTableBase.TableInfo">
+            <summary>
+                テーブル情報
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+            <remarks>継承専用</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.#ctor(DBClassLib.All.Base.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.#ctor(DBClassLib.All.Base.DbTransaction)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.PrepareDbKind(DBClassLib.All.DbKind)">
+            <summary>
+                データベースの種類ごとに初期化する。
+            </summary>
+            <param name="kind">データベース種類</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select">
+            <summary>
+                Select文を実行する。
+                テーブル内の全レコードを取得する。
+            </summary>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select(System.Collections.Generic.List{System.String})">
+            <summary>
+                Select文を実行する。
+                テーブル内の全レコードを取得する。カラムを指定する。
+            </summary>
+            <param name="lstColumns"></param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select(System.String)">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{System.String}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Select(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{System.String}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Insert(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Insert文を実行する。
+            </summary>
+            <param name="diInsert">Insertするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Update文を実行する。Dictioanryのカラムの中に主キーが含まれていたら、それを検索条件にする。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーはUpdateしない。</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="strWhere">検索条件</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Delete">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Delete(System.String)">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.Delete(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String)">
+            <summary>
+                Select Func(*) from ...を取得する。（検索条件なし）
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String,System.String)">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <param name="strWhere">検索条件</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.SelectCount">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.SelectCount(System.String)">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTableBase.SelectCount(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="T:DBClassLib.All.Base.DbTransaction">
+            <summary>
+                トランザクションクラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbTransaction.IsDisposeConnection">
+            <summary>
+                このクラスのリソースを破棄するときにコネクションのリソースも破棄するかどうか
+            </summary>
+        </member>
+        <member name="P:DBClassLib.All.Base.DbTransaction.Transaction">
+            <summary>
+                トランザクション用インターフェイス
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+            <remarks>同ライブラリ内での継承専用</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.#ctor(DBClassLib.All.DbKind)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="kind">データベースの種類</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.#ctor(DBClassLib.All.Base.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.#ctor(DBClassLib.All.Base.DbTransaction)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.PrepareDbKind(DBClassLib.All.DbKind)">
+            <summary>
+                データベースの種類ごとに初期化する。
+            </summary>
+            <param name="kind">データベース種類</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.BeginTrans">
+            <summary>
+                トランザクションを開始する。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.BeginTrans(System.Data.IsolationLevel)">
+            <summary>
+                トランザクションを開始する。
+            </summary>
+            <param name="level">分離レベル</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.CommitTrans">
+            <summary>
+                トランザクションをコミットする
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.RollbackTrans">
+            <summary>
+                トランザクションをロールバックする
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.Dispose">
+            <summary>
+                リソースを破棄する。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.CopyConnection(DBClassLib.All.Base.DbConnection)">
+            <summary>
+                コネクションをコピーする
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.CopyTransaction(DBClassLib.All.Base.DbTransaction)">
+            <summary>
+                トランザクションをコピーする
+            </summary>
+            <param name="trans">トランザクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Base.DbTransaction.Copy(System.Object)">
+            <summary>
+                コネクションのコピーを行う。
+            </summary>
+            <param name="to">コピー先</param>
+        </member>
+        <member name="T:DBClassLib.All.DbKind">
+            <summary>
+                データベースの種類
+            </summary>
+        </member>
+        <member name="F:DBClassLib.All.DbKind.SQLServer">
+            <summary>SQLServer</summary>
+        </member>
+        <member name="T:DBClassLib.All.Middle.DbTableBaseMiddle`1">
+            <summary>
+                データベーステーブル中間ライブラリ基底クラス
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.#ctor(DBClassLib.All.Base.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.#ctor(DBClassLib.All.Base.DbTransaction)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.#ctor(DBClassLib.All.Base.DbConnection,System.String)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+            <param name="strSchema">スキーマ名</param>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.#ctor(DBClassLib.All.Base.DbTransaction,System.String)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans"></param>
+            <param name="strSchema">スキーマ名</param>
+        </member>
+        <member name="P:DBClassLib.All.Middle.DbTableBaseMiddle`1.Schema">
+            <summary>
+                スキーマ名
+            </summary>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.GetTableInfo">
+            <summary>
+                テーブル情報を取得します。
+            </summary>
+            <returns>テーブル情報</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Select(System.Collections.Generic.List{`0})">
+            <summary>
+                Select文を実行する。
+                テーブル内の全レコードを取得する。カラムを指定する。
+            </summary>
+            <param name="lstColumns"></param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Select(System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Select(System.Collections.Generic.List{`0},System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Select(System.Collections.Generic.List{`0},System.String)">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Select(System.Collections.Generic.List{`0},System.Collections.Generic.Dictionary{`0,System.Object},System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{`0}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Select(System.Collections.Generic.List{`0},System.String,System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{`0}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Insert(System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                Insert文を実行する。
+            </summary>
+            <param name="diInsert">Insertするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Update(System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                Update文を実行する。Dictioanryのカラムの中に主キーが含まれていたら、それを検索条件にする。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーはUpdateしない。</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Update(System.Collections.Generic.Dictionary{`0,System.Object},System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Update(System.Collections.Generic.Dictionary{`0,System.Object},System.String)">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="strWhere">検索条件</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.Delete(System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.SelectFunc(DBClassLib.Common.Functions,`0)">
+            <summary>
+                Select Func(*) from ...を取得する。（検索条件なし）
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="column">カラム名</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.SelectFunc(DBClassLib.Common.Functions,`0,System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="column">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.SelectFunc(DBClassLib.Common.Functions,`0,System.String)">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="column">カラム名</param>
+            <param name="strWhere">検索条件</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.SelectCount(System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.GetList(System.Collections.Generic.List{`0})">
+            <summary>
+                カラムを含んだListを変換する。
+            </summary>
+            <param name="lst">変換前リスト</param>
+            <returns>変換後リスト</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.GetListOrderBy(System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{`0}})">
+            <summary>
+                OrderBy句部分のListを変換する。
+            </summary>
+            <param name="lst">変換前リスト</param>
+            <returns>変換後リスト</returns>
+        </member>
+        <member name="M:DBClassLib.All.Middle.DbTableBaseMiddle`1.GetDic(System.Collections.Generic.Dictionary{`0,System.Object})">
+            <summary>
+                カラムを含んだDictionaryを変換する。
+            </summary>
+            <param name="di">変換前Dictionary</param>
+            <returns>変換後Dictionary</returns>
+        </member>
+        <member name="T:DBClassLib.Common.DBDataType">
+            <summary>
+                データベース型
+            </summary>
+        </member>
+        <member name="F:DBClassLib.Common.DBDataType.Normal">
+            <summary>通常の型</summary>
+        </member>
+        <member name="F:DBClassLib.Common.DBDataType.Date">
+            <summary>日付型</summary>
+        </member>
+        <member name="F:DBClassLib.Common.DBDataType.NChar">
+            <summary>NCHAR型</summary>
+        </member>
+        <member name="F:DBClassLib.Common.DBDataType.NVarchar">
+            <summary>NVARCHAR型</summary>
+        </member>
+        <member name="T:DBClassLib.Common.Functions">
+            <summary>
+                SQLで使用する関数
+            </summary>
+        </member>
+        <member name="F:DBClassLib.Common.Functions.Max">
+            <summary>最大値</summary>
+        </member>
+        <member name="F:DBClassLib.Common.Functions.Min">
+            <summary>最小値</summary>
+        </member>
+        <member name="F:DBClassLib.Common.Functions.Sum">
+            <summary>合計</summary>
+        </member>
+        <member name="F:DBClassLib.Common.Functions.Count">
+            <summary>レコードの個数</summary>
+        </member>
+        <member name="T:DBClassLib.Common.Info.ColumnInfo">
+            <summary>
+                カラム情報
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.ColumnInfo.ColumnName">
+            <summary>
+                カラム名
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.ColumnInfo.DBDataType">
+            <summary>
+                データベース型
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.ColumnInfo.IsPrimaryKey">
+            <summary>
+                主キーかどうか
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.ColumnInfo.IsNullable">
+            <summary>
+                NULL許可するかどうか
+            </summary>
+        </member>
+        <member name="T:DBClassLib.Common.Info.ColumnsInfo">
+            <summary>
+                カラム情報コレクションクラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.ColumnsInfo.Item(System.Int32)">
+            <summary>
+                カラム情報を取得する。
+            </summary>
+            <param name="index">インデックス</param>
+            <returns>カラム情報</returns>
+        </member>
+        <member name="P:DBClassLib.Common.Info.ColumnsInfo.Item(System.String)">
+            <summary>
+                カラム情報を取得する。
+            </summary>
+            <param name="strColumnName">カラム名</param>
+            <returns>カラム情報</returns>
+        </member>
+        <member name="M:DBClassLib.Common.Info.ColumnsInfo.GetEnumerator">
+            <summary>
+                イテレータ
+            </summary>
+            <returns>カラム情報のコレクション</returns>
+        </member>
+        <member name="M:DBClassLib.Common.Info.ColumnsInfo.Add(DBClassLib.Common.Info.ColumnInfo)">
+            <summary>
+                コレクションにカラムを追加する。
+            </summary>
+            <param name="column">カラム情報</param>
+        </member>
+        <member name="M:DBClassLib.Common.Info.ColumnsInfo.Add(System.String,DBClassLib.Common.DBDataType,System.Boolean,System.Boolean)">
+            <summary>
+                コレクションにカラムを追加する・
+            </summary>
+            <param name="strName">カラム名</param>
+            <param name="type">データベース型</param>
+            <param name="blIsPrimaryKey">主キーかどうか</param>
+            <param name="blIsNullable">NULL許可するかどうか</param>
+        </member>
+        <member name="M:DBClassLib.Common.Info.ColumnsInfo.GetColumnNameFromIndex(System.Int32)">
+            <summary>
+                DictionaryでIndexからカラム名を取得します。
+            </summary>
+            <param name="intIndex">カラム名</param>
+            <returns>インデックス</returns>
+        </member>
+        <member name="T:DBClassLib.Common.Info.OrderByInfo`1">
+            <summary>
+                OrderBy情報クラス
+            </summary>
+            <typeparam name="T">カラム名の型（string または 列挙体）</typeparam>
+        </member>
+        <member name="P:DBClassLib.Common.Info.OrderByInfo`1.Column">
+            <summary>
+                カラム名
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.OrderByInfo`1.AscDesc">
+            <summary>
+                ソート方向
+            </summary>
+        </member>
+        <member name="M:DBClassLib.Common.Info.OrderByInfo`1.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+        </member>
+        <member name="M:DBClassLib.Common.Info.OrderByInfo`1.#ctor(`0,DBClassLib.Common.OrderByAscDesc)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="column">カラム名</param>
+            <param name="ascdesc">ソート方向</param>
+        </member>
+        <member name="T:DBClassLib.Common.Info.TableInfo">
+            <summary>
+                テーブル情報クラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.TableInfo.Columns">
+            <summary>
+                カラム情報のコレクション
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.TableInfo.TableName">
+            <summary>
+                テーブル名
+            </summary>
+        </member>
+        <member name="P:DBClassLib.Common.Info.TableInfo.Schema">
+            <summary>
+                スキーマ名
+            </summary>
+        </member>
+        <member name="T:DBClassLib.Common.OrderByAscDesc">
+            <summary>
+                Order By句の並べ替え方向
+            </summary>
+        </member>
+        <member name="F:DBClassLib.Common.OrderByAscDesc.Asc">
+            <summary>昇順</summary>
+        </member>
+        <member name="F:DBClassLib.Common.OrderByAscDesc.Desc">
+            <summary>降順</summary>
+        </member>
+        <member name="T:DBClassLib.DBClassLibException">
+            <summary>
+                DBClassLib例外クラス
+            </summary>
+        </member>
+        <member name="M:DBClassLib.DBClassLibException.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+        </member>
+        <member name="M:DBClassLib.DBClassLibException.#ctor(System.String)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="message">エラーメッセージ</param>
+        </member>
+        <member name="M:DBClassLib.DBClassLibException.#ctor(System.String,System.Exception)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="message">エラーメッセージ</param>
+            <param name="innerException">内部で発生した例外</param>
+        </member>
+        <member name="T:DBClassLib.IDbAccessBase">
+            <summary>
+                テーブルアクセスインターフェイス
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.AddParameter(System.String,System.Object,DBClassLib.Common.DBDataType)">
+            <summary>
+                パラメータを追加する。
+            </summary>
+            <param name="name">パラメータ名</param>
+            <param name="value">値</param>
+            <param name="type">データベース型</param>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.ClearParameter">
+            <summary>
+                Parameterをクリアする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.ExecuteDataSet(System.String)">
+            <summary>
+                Select文を実行する。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.ExecuteNonQuery(System.String)">
+            <summary>
+                Insert文・Update文・Delete文などを実行する。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.GetSchema(System.String)">
+            <summary>
+                スキーマ情報を取得します。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.GetDBDateTimeNow">
+            <summary>
+                データベース上の現在時刻を取得します。
+            </summary>
+            <returns>データベース上の現在時刻</returns>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.ConvertDataRow``1(System.Object)">
+            <summary>
+                DataRowから取得したデータを変換する。
+            </summary>
+            <typeparam name="T">取得する型</typeparam>
+            <param name="obj">DataRowにあるデータ</param>
+            <returns>変換したデータ</returns>
+        </member>
+        <member name="M:DBClassLib.IDbAccessBase.ConvertDataRowToNullable``1(System.Object)">
+            <summary>
+                DataRowから取得したデータを変換する。
+            </summary>
+            <typeparam name="T">取得する型</typeparam>
+            <param name="obj">DataRowにあるデータ</param>
+            <returns>変換したデータ</returns>
+        </member>
+        <member name="T:DBClassLib.IDbConnection">
+            <summary>
+                コネクション用インターフェイス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.IDbConnection.ConnectionString">
+            <summary>
+                接続文字列
+            </summary>
+        </member>
+        <member name="P:DBClassLib.IDbConnection.IsOpen">
+            <summary>
+                接続が開かれているかどうか
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbConnection.Open">
+            <summary>
+                コネクションを開く
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbConnection.Close">
+            <summary>
+                コネクションを閉じる
+            </summary>
+        </member>
+        <member name="T:DBClassLib.IDbTableBase">
+            <summary>
+                データベーステーブル基底クラスインターフェイス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.IDbTableBase.TableInfo">
+            <summary>
+                テーブル情報
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select">
+            <summary>
+                Select文を実行する。
+                テーブル内の全レコードを取得する。
+            </summary>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select(System.Collections.Generic.List{System.String})">
+            <summary>
+                Select文を実行する。
+                テーブル内の全レコードを取得する。カラムを指定する。
+            </summary>
+            <param name="lstColumns"></param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select(System.String)">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{System.String}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Select(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{System.String}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Insert(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Insert文を実行する。
+            </summary>
+            <param name="diInsert">Insertするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Update文を実行する。Dictioanryのカラムの中に主キーが含まれていたら、それを検索条件にする。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーはUpdateしない。</remarks>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="strWhere">検索条件</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Delete">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Delete(System.String)">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.Delete(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String)">
+            <summary>
+                Select Func(*) from ...を取得する。（検索条件なし）
+            </summary>
+            <param name="functions"></param>
+            <param name="strColumn"></param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String,System.String)">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <param name="strWhere">検索条件</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.SelectCount">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.SelectCount(System.String)">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.IDbTableBase.SelectCount(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="T:DBClassLib.IDbTransaction">
+            <summary>
+                トランザクション用インターフェイス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.IDbTransaction.IsDisposeConnection">
+            <summary>
+                このクラスのリソースを破棄するときにコネクションのリソースも破棄するかどうか
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbTransaction.BeginTrans">
+            <summary>
+                トランザクションを開始する
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbTransaction.BeginTrans(System.Data.IsolationLevel)">
+            <summary>
+                トランザクションを開始する
+            </summary>
+            <param name="level">分離レベル</param>
+        </member>
+        <member name="M:DBClassLib.IDbTransaction.CommitTrans">
+            <summary>
+                トランザクションをコミットする
+            </summary>
+        </member>
+        <member name="M:DBClassLib.IDbTransaction.RollbackTrans">
+            <summary>
+                トランザクションをロールバックする
+            </summary>
+        </member>
+        <member name="T:DBClassLib.SQLServer.DbAccessBase">
+            <summary>
+                SQL Server DBアクセスクラス
+            </summary>
+        </member>
+        <member name="F:DBClassLib.SQLServer.DbAccessBase.diParameter">
+            <summary>
+                SqlParameter
+                Key : カラム名, Value ; SQLパラメータ
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+            <remarks>DBClassLib.All.Baseで使用するときのみ有効</remarks>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.#ctor(DBClassLib.SQLServer.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.#ctor(DBClassLib.SQLServer.DbTransaction)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans">トランザクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.AddParameter(System.String,System.Object,DBClassLib.Common.DBDataType)">
+            <summary>
+                パラメータを追加する。
+            </summary>
+            <param name="name">パラメータ名</param>
+            <param name="value">値</param>
+            <param name="type">データベース型</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.ClearParameter">
+            <summary>
+                パラメータをクリアする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.ExecuteDataSet(System.String)">
+            <summary>
+                Select文を実行する。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.ExecuteNonQuery(System.String)">
+            <summary>
+                Insert文・Update文・Delete文などのデータを取得しないSQL文を実行する。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.GetSchema(System.String)">
+            <summary>
+                スキーマ情報を取得する。
+            </summary>
+            <param name="strQuery">SQL</param>
+            <returns>スキーマ情報</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.GetDBDateTimeNow">
+            <summary>
+                データベース上の現在時刻を取得します。
+            </summary>
+            <returns>データベース上の現在時刻</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.GetParameter(System.String,System.Object,DBClassLib.Common.DBDataType)">
+            <summary>
+                SQLParameterを取得します。
+            </summary>
+            <param name="name">パラメータ名</param>
+            <param name="value">値</param>
+            <param name="type">データベース型</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.ConvertDataRow``1(System.Object)">
+            <summary>
+                DataRowから取得したデータを変換する。
+            </summary>
+            <typeparam name="T">取得する型</typeparam>
+            <param name="obj">DataRowにあるデータ</param>
+            <returns>変換したデータ</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbAccessBase.ConvertDataRowToNullable``1(System.Object)">
+            <summary>
+                DataRowから取得したデータを変換する。
+            </summary>
+            <typeparam name="T">取得する型</typeparam>
+            <param name="obj">DataRowにあるデータ</param>
+            <returns>変換したデータ</returns>
+        </member>
+        <member name="T:DBClassLib.SQLServer.DbBase">
+            <summary>
+                SQL Server データベース基底クラス
+            </summary>
+        </member>
+        <member name="T:DBClassLib.SQLServer.DbConnection">
+            <summary>
+                SQL Server コネクションクラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.SQLServer.DbConnection.ConnectionString">
+            <summary>
+                接続文字列
+            </summary>
+        </member>
+        <member name="P:DBClassLib.SQLServer.DbConnection.Connection">
+            <summary>
+                SQL Server コネクション
+            </summary>
+        </member>
+        <member name="P:DBClassLib.SQLServer.DbConnection.IsOpen">
+            <summary>
+                接続が開かれているかどうか
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbConnection.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbConnection.#ctor(DBClassLib.SQLServer.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コピーするコネクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbConnection.Open">
+            <summary>
+                データベースをオープンする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbConnection.Close">
+            <summary>
+                データベースをクローズする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbConnection.CopyConnection(DBClassLib.SQLServer.DbConnection)">
+            <summary>
+                コネクションをコピーする。
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbConnection.Copy(System.Object)">
+            <summary>
+                コネクションのコピーを行う。
+            </summary>
+            <param name="to">コピー先</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbConnection.Dispose">
+            <summary>
+                リソースを破棄する。
+            </summary>
+        </member>
+        <member name="T:DBClassLib.SQLServer.DbTableBase">
+            <summary>
+                SQL Server データベーステーブル基底クラス
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+            <remarks>DBClassLib.All.Baseで使用するときのみ有効</remarks>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.#ctor(DBClassLib.SQLServer.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.#ctor(DBClassLib.SQLServer.DbTransaction)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans">トランザクション</param>
+        </member>
+        <member name="P:DBClassLib.SQLServer.DbTableBase.TableInfo">
+            <summary>
+                テーブル情報
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select">
+            <summary>
+                Select文を実行する。
+                テーブル内の全レコードを取得する。
+            </summary>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select(System.Collections.Generic.List{System.String})">
+            <summary>
+                Select文を実行する。
+                テーブル内の全レコードを取得する。カラムを指定する。
+            </summary>
+            <param name="lstColumns"></param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select(System.String)">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{System.String}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Select(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{DBClassLib.Common.Info.OrderByInfo{System.String}})">
+            <summary>
+                Select文を実行する。
+                テーブル内のレコードを取得する。
+            </summary>
+            <param name="lstColumns">カラム名</param>
+            <param name="strWhere">検索条件（「Where」は含めない条件式）</param>
+            <param name="lstOrderBy">OrderBy句部分（Columns : カラム名, AscDesc : 昇順または降順）</param>
+            <returns>データセット</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Insert(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Insert文を実行する。
+            </summary>
+            <param name="diInsert">Insertするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Update文を実行する。Dictioanryのカラムの中に主キーが含まれていたら、それを検索条件にする。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーはUpdateしない。</remarks>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="strWhere">検索条件</param>
+            <returns>影響を受けた行数</returns>
+            <remarks>主キーもUpdateする。</remarks>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Update(System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.Boolean)">
+            <summary>
+                Update文を実行する。
+            </summary>
+            <param name="diUpdate">Updateするデータ（Key : カラム名, Value : 値）</param>
+            <param name="strWhere">検索条件</param>
+            <param name="blAcceptUpdatePrimaryKey">主キーをUpdateするかどうか</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Delete">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Delete(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.Delete(System.String)">
+            <summary>
+                Delete文を実行する。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns>影響を受けた行数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String)">
+            <summary>
+                Select Func(*) from ...を取得する。（検索条件なし）
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.SelectFunc(DBClassLib.Common.Functions,System.String,System.String)">
+            <summary>
+                Select Func(*) from ... where ...を実行する。
+            </summary>
+            <param name="functions">関数の種類</param>
+            <param name="strColumn">カラム名</param>
+            <param name="strWhere">検索条件</param>
+            <returns>取得結果</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.SelectCount">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.SelectCount(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.SelectCount(System.String)">
+            <summary>
+                レコードの個数を取得します。
+            </summary>
+            <param name="strWhere">検索条件</param>
+            <returns>レコードの個数</returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.CreateSimpleWhere(System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+                シンプルなWhere句を作成します。（「Where」は含みません。）
+                カラム = 値 And カラム = 値 And...の式でつなぎます。
+            </summary>
+            <param name="diWhere">検索条件（Key : カラム名, Value : 値）</param>
+            <param name="blPrimaryKeyOnly">主キーのみを検索条件に含めるかどうか</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTableBase.GetTableName">
+            <summary>
+                テーブル名を取得する。
+            </summary>
+            <returns>テーブル名</returns>
+        </member>
+        <member name="T:DBClassLib.SQLServer.DbTransaction">
+            <summary>
+                SQL Server トランザクションクラス
+            </summary>
+        </member>
+        <member name="P:DBClassLib.SQLServer.DbTransaction.IsDisposeConnection">
+            <summary>
+                このクラスのリソースを破棄するときにコネクションのリソースも破棄するかどうか
+            </summary>
+        </member>
+        <member name="P:DBClassLib.SQLServer.DbTransaction.Transaction">
+            <summary>
+                SQL Server トランザクション
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.#ctor">
+            <summary>
+                コンストラクタ
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.#ctor(DBClassLib.SQLServer.DbConnection)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="con">コピーするコネクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.#ctor(DBClassLib.SQLServer.DbTransaction)">
+            <summary>
+                コンストラクタ
+            </summary>
+            <param name="trans">コピーするトランザクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.BeginTrans">
+            <summary>
+                トランザクションを開始する。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.BeginTrans(System.Data.IsolationLevel)">
+            <summary>
+                トランザクションを開始する
+            </summary>
+            <param name="level">分離レベル</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.CommitTrans">
+            <summary>
+                トランザクションをコミットする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.RollbackTrans">
+            <summary>
+                トランザクションをロールバックする。
+            </summary>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.CopyConnection(DBClassLib.SQLServer.DbConnection)">
+            <summary>
+                コネクションをコピーする
+            </summary>
+            <param name="con">コネクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.CopyTransaction(DBClassLib.SQLServer.DbTransaction)">
+            <summary>
+                トランザクションをコピーする
+            </summary>
+            <param name="trans">トランザクション</param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.Copy(System.Object)">
+            <summary>
+                トランザクションのコピーを行う。
+            </summary>
+            <param name="to"></param>
+        </member>
+        <member name="M:DBClassLib.SQLServer.DbTransaction.Dispose">
+            <summary>
+                リソースを破棄する。
+            </summary>
+        </member>
+    </members>
+</doc>
